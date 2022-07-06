@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>CAPTCHA</title>
+	<link rel="stylesheet" type="text/css" href="/static/styles/style.css">
+</head>
+
+<body>
+	<div id="main">
+		<a href="/">Ricomincia</a>
+		<h1>Prima di proseguire dimostrami che non sei un computer</h1>
+		
+		<img src="/images/wJKJ5TzUQMRCgZJnn5_vVg.-rYWJEmNRt4.XieK2GLF_0CkZi4d1AQznw" alt="captcha">
+		<div class="form">
+			<form action="/next" method="post">
+				<input type="text" name="risposta">
+				<button id="next" type="submit">Manda</button>
+			</form>
+		</div>
+		<small>Hai ancora <i id="remaining">120</i> secondi e hai passato <i>0</i> su <i>100</i>
+			captchas</small>
+		
+	</div>
+</body>
+
+<script>
+	var rem = document.getElementById("remaining");
+	setInterval(function () {
+		if (rem.innerText != 0)
+			rem.innerText -= 1;
+	}, 1000);
+</script>
+
+</html>
